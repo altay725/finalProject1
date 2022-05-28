@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</head>
+<style>
+body{
+background-color:black;
+}
+ .btn-3 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+        }
+
+        .btn-3:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+        }
+</style>
+<body>
+
+<nav class="text-center">
+    <h2 style="color:white;">Your Personal Laptop Base</h2>
+    <input type="text" id="searchTable" name="searchTable" onkeyup="myFunction()" placeholder="Search..">
+    <a href="/computer-base/add-computer" class="btn btn-success">Add product</a>
+    <a sec:authorize="isAuthenticated()" th:if="${isAdmin}" href="/computer-shop/myorders" class="btn btn-3">Orders</a>
+    <a href="/" class="btn btn-warning">Home Page</a>
+</nav>
+<table class="table" id="myTable">
+    <thead>
+    <tr style="color:white">
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Model</th>
+        <th scope="col">Price</th>
+        <th scope="col">Functions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="computer : ${computer_list}" style="color:white;">
+        <th scope="row" th:text="${computer.id}">id</th>
+        <td th:text="${computer.marka}">Mark</td>
+        <td th:text="${computer.comp_model}">Model</td>
+        <td th:text="${computer.price}+'$'">price</td>
+        <td>
+            <a class="btn btn-secondary" th:href="@{/computer-base/delete/{id}(id=${computer.id})}">Delete</a>
+            <a class="btn btn-danger" th:href="@{/computer-base/edit/{id}(id=${computer.id})}" >Edit</a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("searchTable");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

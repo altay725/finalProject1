@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+    margin:30px;
+            background-image: url("https://cdn.wallpapersafari.com/74/87/CcPbEd.jpg");
+            background-size: cover;
+    }
+        h1{
+        color: white;
+		width: 580px;
+		text-decoration: underline;
+		text-decoration-style: wavy;
+		text-decoration-color: rgb(0, 255, 81);
+
+        }
+        a{
+        color: white;
+		width: 350px;
+		height: auto;
+		margin-left: 100px;
+
+        }
+		#all{
+			background-color: rgba(9, 145, 187, 0.438);
+			padding: 50px;
+			align-items: center;
+			width: 1100px;
+			 border-radius:  2%;
+
+		}
+		.z1{
+		width:40px;
+		height:auto;
+		}
+
+    </style>
+</head>
+<body>
+<center>
+    <br> <br> <br> <br> <br>
+    <div id="all">
+        <h1>Welcome to laptop shop Skaletto</h1><br>
+        <nav id="navik" class="text-center">
+            <a id="home" href="/" class="btn btn-primary">Home <img class="z1" src='https://www.freeiconspng.com/uploads/simple-home-shape-with-solid-roof-outline-icon-078552--icons-etc-17.png'/></a>
+            <a id="buy" href="/computer-shop" class="btn btn-info">Buying & Selling <img class="z1" src='https://www.freeiconspng.com/uploads/buy-cart-ecommernce-shopping-icon-29.png'/></a>
+            <br><br><br><br><br><br>
+
+            <a sec:authorize="isAuthenticated()" href="/computer-base" class="btn btn-warning">Computers <img class="z1" src='https://www.freeiconspng.com/uploads/apple-computer-laptop-mac-monitor-screen-icon--icon-search--16.png'/></a>
+            <a id="login" sec:authorize="!isAuthenticated()" href="/login" class="btn btn-warning">Login <img class="z1" src='https://www.freeiconspng.com/uploads/user-login-icon-29.png'/></a>
+            <a id="signup" sec:authorize="!isAuthenticated()" href="/computer-shop/sign-up" class="btn btn-success">New user <img class="z1" src='https://www.freeiconspng.com/uploads/group-registration-icon-26.png'/></a>
+            <a sec:authorize="isAuthenticated()" href="/logout" class="btn btn-danger">Logout <img class="z1" src='https://www.freeiconspng.com/uploads/door-exit-logout-icon--5.png'/></a>
+        </nav>
+    </div>
+
+
+</center>
+
+</body>
+</html>

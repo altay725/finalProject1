@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</head>
+<style>
+    * {
+        margin: 0;
+	padding: 0;
+        box-sizing: border-box;
+    }
+
+    .con {
+        float: left;
+        display: block;
+        width: 300px;
+
+        margin: 2px;
+    }
+
+    .con-2 {
+        float: left;
+        display: block;
+        width: 300px;
+
+        margin: 2px;
+    }
+
+    body {
+        background-color: rgb(48, 47, 47);
+    }
+
+    .container {
+
+        height: auto;
+        padding: 30px;
+        text-align: center;
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: rgb(62, 59, 59);
+        border-radius: 2%;
+    }
+
+    .con {
+        display: inline-block;
+        padding: 50px;
+    }
+
+    .formaforcomp {
+        padding: 10px;
+
+
+    }
+
+
+
+
+    label {
+        color: white;
+
+    }
+
+    .container {
+        width: 600px;
+        height: auto;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    input[type=text] {
+        padding: 10px;
+        width: 300px;
+        border-radius: 15px;
+        border: 0;
+        font-family:'Courier New', Courier, monospace;
+        font-size: large;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        transition: all 800ms;
+        background: linear-gradient(180deg,rgb(18, 165, 233),rgb(121, 238, 110),rgb(222, 225, 30));
+    }
+    input[type=text]:hover{
+        box-shadow: 2px 3px 3px rgb(8, 74, 196);
+    }
+    input[type=number] {
+        padding: 10px;
+        width:300px ;
+        font-family:'Times New Roman', Times, serif;
+        font-size: large;
+        border-radius: 15px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+        transition: all 800ms;
+        background: linear-gradient(180deg,rgb(18, 165, 233),rgb(121, 238, 110),rgb(222, 225, 30));
+    }
+    input[type=number]:hover{
+
+      box-shadow: 2px 3px 3px lightblue;
+    }
+    label{
+        text-shadow: 2px 1px 3px yellow;
+        font-size: larger;
+    }
+  h1{
+      text-shadow: 4px 2px 3px rgb(124, 124, 218);
+      box-shadow: 2px 3px 3px rgb(125, 0, 250);
+      color: white;
+      transition: all 1000ms;
+  }
+
+  h1:hover{
+    text-shadow: 4px 2px 3px rgb(229, 151, 67);
+      box-shadow: 2px 3px 3px rgb(150, 203, 210);
+    transform: scale(1.2);
+  }
+
+.buttonone{
+    background-color: rgba(46, 42, 42, 0.645);
+    border: 2px solid rgb(11, 114, 5);
+    border-radius: 13px;
+    width: 300px;
+    height: 45px;
+    color: white;
+    transition: all 800ms;
+}
+.buttonone:hover{
+    transform: scale(1.1);
+    background-color: rgba(9, 238, 215, 0.645);
+    border: 2px solid rgb(114, 107, 5);
+    color: white;
+}
+#im{
+    width: 180px;
+}
+#selll{
+    width: 400px;
+    background-color: transparent;
+    margin-left: 50px;
+}
+.lap{
+    color: white;
+    text-shadow: 2px 1px 3px yellow;
+        font-size: larger;
+}
+.spina{
+    color: red;
+    font-size: large;
+}
+</style>
+
+<body>
+
+<a href="/computer-base" class="btn btn-info " style="width:200px;">Get Back</a></nav>
+<center>
+
+    <br>
+    <nav class="text-center">
+
+        <br>
+        <div id="rw" class="container row">
+            <h1 id="selll">Sell a Computer</h1>
+            <form action="/computer-base/save" method="POST" th:object="${computer}" enctype="multipart/form-data"
+                  class="formaforcomp">
+                <br>
+                <div class="One">
+                    <input type="hidden" th:field="*{id}">
+
+                    <p class="lap">Name of the laptop</p>
+                    <input type="text" id="marka_" th:field="*{marka}" placeholder="Name"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('marka')}" th:errors="*{marka}"></span>
+                    <br>
+
+
+                    <p class="lap">Model of the laptop</p>
+                    <input type="text"   id="model" th:field="*{comp_model}" placeholder="Model"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('comp_model')}" th:errors="*{comp_model}"></span>
+                    <br>
+
+
+                    <p class="lap">Price of the laptop</p>
+                    <input type="number"  id="price" th:field="*{price}" placeholder="Price"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+                    <br>
+                    <p class="lap">Description of the laptop</p>
+                    <input type="text" id="description" th:field="*{description}" placeholder="Description "><br>
+                    <span class="spina" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                    <br>
+                    <label>Choose condition of the laptop</label>
+                    <select  th:field="*{condition}">
+                        <option value="New">New</option>
+                        <option value="Old">Old</option>
+                    </select>
+                    <span class="spina" th:if="${#fields.hasErrors('condition')}" th:errors="*{condition}"></span>
+                    <br>
+                    <br>
+                    <label>Image of the laptop</label>
+                    <input class="im" type="file"  name="computer_image" style="width:100px" required>
+                    <br>
+                    <br>
+
+                    <p class="lap">RAM of the laptop</p>
+                    <input type="text" id="op_pam" th:field="*{op_memory}" placeholder="RAM"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('op_memory')}" th:errors="*{op_memory}"></span>
+                    <br>
+
+                </div>
+                <div class="Two">
+
+
+                    <p class="lap">Processor of the laptop</p>
+                    <input type="text" id="proc" th:field="*{processor}" placeholder="CPU"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('processor')}" th:errors="*{processor}"></span>
+                    <br>
+
+                    <p class="lap">Memory of the laptop</p>
+                    <input type="text" id="pamyati" th:field="*{pamyati}" placeholder="Memory"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('pamyati')}" th:errors="*{pamyati}"></span>
+                    <br>
+                    <label for="mem_type">Memory type of the laptop</label>
+                    <select th:field="*{tip_pamyati}" id="mem_type">
+                        <option value="SSD">SSD</option>
+                        <option value="HHD">HHD</option>
+                    </select>
+                    <span class="spina" th:if="${#fields.hasErrors('tip_pamyati')}" th:errors="*{tip_pamyati}"></span>
+                    <br>
+                    <br>
+                    <label for="operac_sis">Operating System of the laptop</label>
+                    <select th:field="*{operac_sistema}" id="operac_sis">
+                        <option value="Microsoft/Windows">Microsoft/Windows</option>
+                        <option value="MacOs">MacOs</option>
+
+                    </select>
+                    <span class="spina" th:if="${#fields.hasErrors('operac_sistema')}" th:errors="*{operac_sistema}"></span>
+                    <br>
+                    <br>
+                    <p class="lap">Video Card of the laptop</p>
+                    <input type="text" id="video_karta" th:field="*{video_card}" placeholder="Video Card"><br>
+                    <span class="spina" th:if="${#fields.hasErrors('video_card')}" th:errors="*{video_card}"></span>
+                    <br>
+                </div>
+
+
+
+
+                <input type="submit" value="Sell" class="buttonone">
+
+            </form></div></nav></center>
+</body>
+</html>

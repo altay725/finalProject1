@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+
+    <style>
+        .container {
+            justify-content: space-between;
+            background-color: rgba(46, 45, 45, 0.603);
+
+            border-radius: 2%;
+            border-color: rgb(34, 34, 34);
+
+        }
+
+        .card {
+            margin: 30px;
+            padding: 10px;
+            height: 390px;
+
+        }
+
+        #imgg {
+            width: 100%;
+            height: 45%;
+        }
+
+        body {
+            background-color: black;
+
+        }
+
+
+        #basket {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: #a1c4fd;
+
+        }
+
+
+
+        #basket img {
+            width: 100px;
+            height: 100px;
+
+        }
+
+        h2 {
+            font-size: 2em;
+            background: linear-gradient(180deg, aquamarine, white);
+            width: 500px;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            color: black;
+            text-shadow: 2px 2px red;
+            transition: all 900ms;
+
+        }
+
+        .btn-1 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+        }
+
+        .btn-1:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+        }
+
+        .btn-2 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+        }
+
+        .btn-2:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+        }
+
+        .btn-3 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+        }
+
+        .btn-3:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+        }
+
+        .btn-4 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+        }
+
+        .btn-4:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+        }
+
+        .btn-5 {
+            flex: 1 1 auto;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 100% auto;
+            color: white;
+            /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            background-image: linear-gradient(to right, darkcyan, rgb(111, 190, 190) 51%, #84fab0 100%);
+        }
+
+        .btn-grad {
+            background-image: linear-gradient(to right, #870000 0%, #190A05 51%, #870000 100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .btn-grad:hover {
+            background-position: right center;
+            /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            background: linear-gradient(180deg, #56ab2f, #a8e063);
+            width: 300px;
+            padding: 8px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            color: white;
+            text-shadow: 2px 2px green;
+            transition: all 900ms;
+
+        }
+.forcards{
+width:1000px;
+height:auto;
+background-color:rgb(35, 31, 32);
+}
+    </style>
+</head>
+
+<body>
+<a href="/" class="btn btn-warning">Home Page</a>
+<a sec:authorize="isAuthenticated()" th:if="${isAdmin}" href="/computer-shop/myorders" class="btn btn-info">Orders</a>
+<nav class="text-center">
+    <br>
+    <h2>The Store</h2>
+
+    <br>
+    <h3 sec:authorize="!isAuthenticated()">Logged as: <span>Guest</span></h3>
+    <h3 sec:authorize="isAuthenticated()">Logged user: <span sec:authentication="name">Bob</span></h3>
+
+</nav>
+
+
+
+<center><div class="forcards row " >
+    <div class="card col-3 " style="width: 17rem; border-radius:10px; " th:each="computer : ${computer_list}">
+        <img id="imgg"
+             th:src="@{api/{accountId}/{imageLink} (imageLink=${computer.imageLink},accountId=${computer.theAccount.id})}"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+            <br>
+            <h5 th:text="${computer.comp_model}" class="card-title">Card title</h5>
+            <span class="card-text">
+                    <br>
+                <!--                 <p>Game_genre: <span th:text="${game.game_genre}"></span></p>-->
+                    <p>Price: <span th:text="${computer.price}+'$'"></span></p>
+                <!--                 <p>Full name: <span th:text="${game.theAccount.full_name}"></span></p>-->
+                <!--                 <p>Email: <span th:text="${game.theAccount.email}"> </span></p>-->
+                <!--                 <p>Phone number: <span th:text="${game.theAccount.phone_number}"> </span></p>-->
+                <!--                 <p>Color: <span th:text="${game.color}"> </span></p>-->
+
+                </span>
+            <a th:href="@{/computer-shop/info/{id} (id=${computer.id}) }" class="btn btn-primary">More</a>
+            <a th:href="@{/computer-shop/basket/buy/{id} (id=${computer.id}) }" class="btn btn-success">Buy</a>
+        </div>
+    </div>
+</div>
+</center>
+<div id="basket" class=" text-center" th:if="${not #lists.isEmpty(purchaseList)}">
+    <div th:each="product : ${purchaseList}">
+        <img th:src="@{api/{accountId}/{imageLink} (imageLink=${product.imageLink},accountId=${product.theAccount.id})}"
+             class="card-img-top" alt="...">
+        <a th:href="@{/computer-shop/basket/delete/{id} (id=${product.id} )}" class="btn btn-success">X</a>
+    </div>
+
+    <a th:href="@{/computer-shop/purchase}" class="btn btn-grad">Purchase</a>
+
+</div>
+
+
+
+
+
+</body>
+
+</html>
